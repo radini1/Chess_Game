@@ -4,6 +4,7 @@
 ![alt text](https://github.com/radini1/Chess_Game/blob/main/img2.png)
 ***
 -_You can learn OOP structure by doing this project._
+**
 -_You'll learn more about pygame and its methods._
 ***
 Thanks for your amzing teaching [Alejandro](https://github.com/AlejoG10)!
