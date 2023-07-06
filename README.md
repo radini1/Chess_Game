@@ -7,7 +7,8 @@
 ---
 -_`You'll learn more about pygame and its methods.`_
 ---
-Thanks for your amzing teaching [Alejandro](https://github.com/AlejoG10)!
+***
+`Thanks for your amzing teaching [Alejandro]`(https://github.com/AlejoG10)!
 ***
 Any question : raadin.dev@gmail.com 
 ***
