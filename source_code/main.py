@@ -43,7 +43,7 @@ class Main:
 
 						if piece.color == game.next_player:
 							## calling our funcs
-							board.calc_moves(piece, clicked_row, clicked_col)
+							board.calc_moves(piece, clicked_row, clicked_col, bool=True)
 							dragger.save_initial(event.pos)
 							dragger.drag_piece(piece)
 

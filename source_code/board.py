@@ -55,7 +55,7 @@ class Board:
 			for col in range(COLS):
 				if temp_board.squares[row][col].has_rival_piece(piece.color):
 					p = temp_board.squares[row][col].piece
-					temp_board.calc_moves(p, row , col)
+					temp_board.calc_moves(p, row , col, bool=False)
 
 					for m in p.moves:
 						if isinstance(m.final.piece, King):
@@ -78,7 +78,10 @@ class Board:
 						final = Square(possible_move_row, col) 
 						move = Move(initial, final)
 
-						if not self.in_check(piece, move):
+						if bool:
+							if not self.in_check(piece, move):							
+								piece.add_move(move)
+						else:
 							piece.add_move(move)
 					else:
 						break  # Pawn's blocked
@@ -95,7 +98,11 @@ class Board:
 						final_piece = self.squares[possible_move_row][possible_move_col].piece
 						final = Square(possible_move_row, possible_move_col, final_piece) 
 						move = Move(initial, final)
-						piece.add_move(move)
+						if bool:
+							if not self.in_check(piece, move):							
+								piece.add_move(move)
+						else:
+							piece.add_move(move)
 					else:
 						break  # Pawn's blocked
 
@@ -122,7 +129,14 @@ class Board:
 						final_piece = self.squares[possible_move_row][possible_move_col].piece
 						final = Square(possible_move_row, possible_move_col, final_piece)
 						move = Move(initial, final)
-						piece.add_move(move)
+
+						if bool:
+							if not self.in_check(piece, move):							
+								piece.add_move(move)
+							else:
+								break 
+						else:
+							piece.add_move(move)
 
 		def straightline_moves(incrs):
 			for incr in incrs:
@@ -138,11 +152,19 @@ class Board:
 						move = Move(initial, final)
 	
 						if self.squares[possible_move_row][possible_move_col].is_empty():
-							piece.add_move(move) 
+							if bool:
+								if not self.in_check(piece, move):							
+									piece.add_move(move)
+							else:
+								piece.add_move(move) 
 	
 						elif self.squares[possible_move_row][possible_move_col].has_rival_piece(piece.color):
-							piece.add_move(move)
-							break
+							if bool:
+								if not self.in_check(piece, move):							
+									piece.add_move(move)
+							else:
+								piece.add_move(move)
+							break 
 
 						elif self.squares[possible_move_row][possible_move_col].has_team_piece(piece.color):
 							break
@@ -174,7 +196,12 @@ class Board:
 						initial = Square(row, col)
 						final = Square(possible_move_row, possible_move_col) 
 						move = Move(initial, final)
-						piece.add_move(move)
+						
+						if bool:
+							if not self.in_check(piece, move):							
+								piece.add_move(move)
+						else:
+							piece.add_move(move)
 
 			if not piece.moved:
 				left_rook = self.squares[row][0].piece
