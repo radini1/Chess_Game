@@ -7,6 +7,8 @@
 ***
 `You'll learn more about pygame and its methods.`
 ***
+_The instruction to make our chess game an exe file [link](https://www.geeksforgeeks.org/convert-python-script-to-exe-file/)_
+***
 _Thanks for your amzing teaching [Alejandro](https://github.com/AlejoG10)!_
 ***
 _Any question : raadin.dev@gmail.com_
